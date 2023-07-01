@@ -9,11 +9,11 @@ var target = process.argv[2];
 var time = process.argv[4];
 var host = url.parse(target).host;
 var theproxy = 0;
-var proxy = proxies[theproxy];
+var proxy = proxies[output.txt];
 var int = setInterval(() => {
-    theproxy++;
-    if (theproxy == proxies.length - 1) { theproxy = 0; }
-    proxy = proxies[theproxy];
+    output.txt++;
+    if (output.txt == proxies.length - 1) {output.txt = 0; }
+    proxy = proxies[output.txt];
     if (proxy && proxy.length > 5) { proxy = proxy.split(':'); } else { return false; }
     var s = require('net').Socket();
     s.connect(proxy[1], proxy[0]);
